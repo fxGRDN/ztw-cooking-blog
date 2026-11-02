@@ -1,10 +1,10 @@
 ---
-title: 'Domowy Ramen z kurczakiem i pastą miso'
-description: 'Głęboki, aromatyczny japoński ramen na esencjonalnym bulionie z imbirem, pastą miso, makaronem alkalicznym, soczystym kurczakiem i perfekcyjnym jajkiem na miękko.'
-pubDate: '2025-05-16'
-author: 'Dominik Maślak'
-heroImage: '../../assets/blog-placeholder-3.jpg'
-tags: ['azjatycka', 'japońska', 'zupa', 'ramen', 'drób']
+title: "Domowy Ramen z kurczakiem i pastą miso"
+description: "Głęboki, aromatyczny japoński ramen na esencjonalnym bulionie z imbirem, pastą miso, makaronem alkalicznym, soczystym kurczakiem i perfekcyjnym jajkiem na miękko."
+pubDate: "2025-05-16"
+author: "Dominik Maślak"
+heroImage: "../../assets/recipes/ramen.png"
+tags: ["azjatycka", "japońska", "zupa", "ramen", "drób"]
 ---
 
 Domowy ramen wcale nie musi wymagać całego dnia stania przy garnkach. Ten przepis na ramen z pastą miso i soczystą piersią z kurczaka pozwala cieszyć się bogatym, głębokim umami i rozgrzewającym smakiem japońskiej zupy w zaciszu własnej kuchni.
@@ -14,15 +14,15 @@ Domowy ramen wcale nie musi wymagać całego dnia stania przy garnkach. Ten prze
 ### Składniki
 
 - **Bulion drobiowy:** 1,5 litra (doskonale sprawdzi się klasyczny, czysty domowy rosół)
-- **Pasta miso:** 3–4 łyżki (najlepiej łagodna, jasna pasta *Shiro Miso*)
+- **Pasta miso:** 3–4 łyżki (najlepiej łagodna, jasna pasta _Shiro Miso_)
 - **Sos sojowy:** 4 łyżki (jasny lub ciemny)
 - **Świeży imbir:** ok. 3 cm kłącza (pokrojonego w grube plastry)
 - **Czosnek:** 3 ząbki (rozgniecione płaską stroną noża)
 - **Olej sezamowy:** 1 łyżeczka
 - **Makaron:** 1 opakowanie (ok. 300 g) makaronu alkalicznego do ramenu
-- **Mięso:** 2 pojedyncze piersi z kurczaka (lub upieczony boczek *chashu*)
+- **Mięso:** 2 pojedyncze piersi z kurczaka (lub upieczony boczek _chashu_)
 - **Jajka:** 4 sztuki
-- *Opcjonalnie do podania:* grzyby shiitake, posiekany szczypiorek, prażony sezam, arkusze glonów nori
+- _Opcjonalnie do podania:_ grzyby shiitake, posiekany szczypiorek, prażony sezam, arkusze glonów nori
 
 ---
 
@@ -42,7 +42,7 @@ Domowy ramen wcale nie musi wymagać całego dnia stania przy garnkach. Ten prze
 
 5. **Wzbogacenie wywaru o pastę miso:**  
    Zdejmij garnek z wywarem z ognia. Odejmij szklankę gorącej zupy do miseczki, dodaj pastę miso i dokładnie wymieszaj trzepaczką lub widelcem, aż całkowicie się rozpuści bez grudek. Wlej rozpuszczoną pastę z powrotem do garnka i dodaj łyżeczkę oleju sezamowego.  
-   *(Pamiętaj: Wywaru z dodatkiem miso nie wolno już ponownie doprowadzać do wrzenia, aby nie zniszczyć jego cennego aromatu i probiotycznych właściwości).*
+   _(Pamiętaj: Wywaru z dodatkiem miso nie wolno już ponownie doprowadzać do wrzenia, aby nie zniszczyć jego cennego aromatu i probiotycznych właściwości)._
 
 6. **Złożenie i podanie miski ramenu:**  
    Do głębokich misek wyłóż porcje ugotowanego makaronu. Zalej je gorącym wywarem miso. Na wierzchu ułóż plastry podsmażonego kurczaka, połówki jajka oraz opcjonalnie szczypiorek, grzyby shiitake, sezam lub płatek nori. Podawaj od razu!

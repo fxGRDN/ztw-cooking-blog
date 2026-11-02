@@ -1,10 +1,10 @@
 ---
-title: 'Kluseczki twarogowe'
-description: 'Szybkie, wytrawne kluseczki twarogowe z podsmażaną cebulką – pożywne, wysokobiałkowe i proste w przygotowaniu.'
-pubDate: '2025-05-20'
-author: 'Dominik Maślak'
-heroImage: '/images/recipes/kluseczki-twarogowe-main.png'
-tags: ['obiad', 'twaróg', 'kluseczki', 'wytrawne', 'wysokobiałkowe']
+title: "Kluseczki twarogowe"
+description: "Szybkie, wytrawne kluseczki twarogowe z podsmażaną cebulką – pożywne, wysokobiałkowe i proste w przygotowaniu."
+pubDate: "2025-05-20"
+author: "Dominik Maślak"
+heroImage: "../../assets/recipes/kluseczki-twarogowe.png"
+tags: ["obiad", "twaróg", "kluseczki", "wytrawne", "wysokobiałkowe"]
 ---
 
 Prosty i szybki przepis na pożywne, miękkie kluseczki twarogowe podawane z aromatyczną, złocistą cebulką. Świetna alternatywa dla tradycyjnych kopytek w wersji o podwyższonej zawartości białka.

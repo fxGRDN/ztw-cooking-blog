@@ -1,10 +1,10 @@
 ---
-title: 'Bułeczki Bao z szarpanym kurczakiem'
-description: 'Azjatyckie parowane bułeczki Bao wypełnione soczystym, szarpanym kurczakiem w sosie BBQ, kukurydzą, chrupiącym ogórkiem i ostrym jalapeno.'
-pubDate: '2025-05-23'
-author: 'Dominik Maślak'
-heroImage: '/images/recipes/buleczki-bao-z-szarpanym-kurczakiem-main.png'
-tags: ['azjatycka', 'bao', 'kurczak', 'street food', 'wysokobiałkowe']
+title: "Bułeczki Bao z szarpanym kurczakiem"
+description: "Azjatyckie parowane bułeczki Bao wypełnione soczystym, szarpanym kurczakiem w sosie BBQ, kukurydzą, chrupiącym ogórkiem i ostrym jalapeno."
+pubDate: "2025-05-23"
+author: "Dominik Maślak"
+heroImage: "../../assets/recipes/buleczki-bao-z-kurczakiem.png"
+tags: ["azjatycka", "bao", "kurczak", "street food", "wysokobiałkowe"]
 ---
 
 Miękkie, parowane bułeczki Bao wypełnione po brzeg aromatycznym, szarpanym kurczakiem w sosie BBQ oraz chrupiącymi świeżymi dodatkami i papryczkami jalapeno.

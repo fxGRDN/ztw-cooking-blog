@@ -1,10 +1,10 @@
 ---
-title: 'Pierogi leniwe z owocami'
-description: 'Klasyczne, delikatne pierogi leniwe z twarogu podawane ze słodką śmietanką oraz świeżymi truskawkami i borówkami.'
-pubDate: '2025-05-24'
-author: 'Dominik Maślak'
-heroImage: '/images/recipes/pierogi-leniwe-z-owocami-main.png'
-tags: ['obiad', 'leniwe', 'twaróg', 'truskawki', 'owoce']
+title: "Pierogi leniwe z owocami"
+description: "Klasyczne, delikatne pierogi leniwe z twarogu podawane ze słodką śmietanką oraz świeżymi truskawkami i borówkami."
+pubDate: "2025-05-24"
+author: "Dominik Maślak"
+heroImage: "../../assets/recipes/pierogi-leniwe-z-owocami.png"
+tags: ["obiad", "leniwe", "twaróg", "truskawki", "owoce"]
 ---
 
 Kultowy, słodki obiad z dzieciństwa w zdrowej wersji. Puszyste leniwe z twarogu polane słodką śmietanką i podane z dużą ilością truskawek oraz borówek.

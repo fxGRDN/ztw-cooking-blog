@@ -1,10 +1,10 @@
 ---
-title: 'Bigos z kiszonej kapusty'
-description: 'Tradycyjny, głęboki w smaku staropolski bigos z kiszonej kapusty, soczystej karkówki, podsmażanej kiełbasy, suszonych borowików i powideł śliwkowych.'
-pubDate: '2025-05-15'
-author: 'Dominik Maślak'
-heroImage: '../../assets/blog-placeholder-2.jpg'
-tags: ['kuchnia polska', 'tradycyjne', 'obiad', 'wieprzowina']
+title: "Bigos z kiszonej kapusty"
+description: "Tradycyjny, głęboki w smaku staropolski bigos z kiszonej kapusty, soczystej karkówki, podsmażanej kiełbasy, suszonych borowików i powideł śliwkowych."
+pubDate: "2025-05-15"
+author: "Dominik Maślak"
+heroImage: "../../assets/recipes/bigos-z-kiszonej-kapusty.png"
+tags: ["kuchnia polska", "tradycyjne", "obiad", "wieprzowina"]
 ---
 
 Klasyczny, aromatyczny bigos z kiszonej kapusty to serce polskiej kuchni. Gotowany powoli z dodatkiem leśnych grzybów, wędliny i suszonych śliwek lub powideł zyskuje niepowtarzalny, głęboki aromat. Im częściej podgrzewany, tym staje się lepszy.
@@ -21,7 +21,7 @@ Klasyczny, aromatyczny bigos z kiszonej kapusty to serce polskiej kuchni. Gotowa
 - **3 szklanki bulionu lub wody**
 - **30 g suszonych borowików**
 - **2 łyżki powideł śliwkowych** lub kilka posiekanych suszonych śliwek
-- **1 jabłko** (np. reneta lub antonówka) – *opcjonalnie*
+- **1 jabłko** (np. reneta lub antonówka) – _opcjonalnie_
 - **1 łyżka koncentratu pomidorowego**
 - **1 łyżka mąki**
 - **1 łyżka masła**

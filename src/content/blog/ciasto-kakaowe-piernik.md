@@ -1,10 +1,10 @@
 ---
 title: "Ciasto kakaowe a'la piernik"
 description: "Puszyste i aromatyczne ciasto kakaowe o korzennych nutach a'la piernik z dodatkiem serka gładkiego, banana, miodu i daktyli."
-pubDate: '2025-05-19'
-author: 'Dominik Maślak'
-heroImage: '/images/recipes/ciasto-kakaowe-ala-piernik-main.png'
-tags: ['deser', 'fit', 'piernik', 'kakaowe', 'wysokobiałkowe']
+pubDate: "2025-05-19"
+author: "Dominik Maślak"
+heroImage: "../../assets/recipes/ciasto-kakaowe-piernik.png"
+tags: ["deser", "fit", "piernik", "kakaowe", "wysokobiałkowe"]
 ---
 
 Aromatyczne, puszyste i wilgotne ciasto kakaowe inspirowane tradycyjnym piernikiem. Połączenie słodkich daktyli, banana oraz miodu z dodatkiem serka i białka serwatkowego tworzy idealny, zbilansowany wypiek.

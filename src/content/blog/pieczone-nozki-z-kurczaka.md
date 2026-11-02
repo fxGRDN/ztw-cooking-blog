@@ -1,10 +1,10 @@
 ---
-title: 'Pieczone nóżki z kurczaka w miodowo-musztardowej glazurze'
-description: 'Złociste, chrupiące z zewnątrz i niezwykle soczyste podudzia z kurczaka pieczone w aromatycznej marynacie z miodu, musztardy, czosnku i ziół.'
-pubDate: '2025-05-17'
-author: 'Dominik Maślak'
-heroImage: '../../assets/blog-placeholder-5.jpg'
-tags: ['drób', 'kurczak', 'obiad', 'pieczone']
+title: "Pieczone nóżki z kurczaka w miodowo-musztardowej glazurze"
+description: "Złociste, chrupiące z zewnątrz i niezwykle soczyste podudzia z kurczaka pieczone w aromatycznej marynacie z miodu, musztardy, czosnku i ziół."
+pubDate: "2025-05-17"
+author: "Dominik Maślak"
+heroImage: "../../assets/recipes/pieczone-nozki-z-kurczaka.png"
+tags: ["drób", "kurczak", "obiad", "pieczone"]
 ---
 
 Pieczone pałeczki z kurczaka w słodko-pikantnej glazurze miodowo-musztardowej to sprawdzony przepis na obiad, który zachwyci każdego. Skórka wychodzi chrupiąca i skarmelizowana, a mięso pozostaje miękkie i pełne soków.

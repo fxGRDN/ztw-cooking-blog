@@ -1,10 +1,10 @@
 ---
-title: 'Sernik z malinami'
-description: 'Lekki, fit sernik na bazie twarogu i skyru z soczystymi malinami oraz maślaną kruszonką.'
-pubDate: '2025-05-21'
-author: 'Dominik Maślak'
-heroImage: '/images/recipes/sernik-z-malinami-main.png'
-tags: ['deser', 'sernik', 'maliny', 'skyr', 'wysokobiałkowe']
+title: "Sernik z malinami"
+description: "Lekki, fit sernik na bazie twarogu i skyru z soczystymi malinami oraz maślaną kruszonką."
+pubDate: "2025-05-21"
+author: "Dominik Maślak"
+heroImage: "../../assets/recipes/sernik-z-malinami.png"
+tags: ["deser", "sernik", "maliny", "skyr", "wysokobiałkowe"]
 ---
 
 Wyśmienity, delikatny sernik w wersji fit z dodatkiem skyru naturalnego i świeżych malin. Zwieńczony chrupiącą kruszonką stanowi doskonały deser bez zbędnych kalorii.

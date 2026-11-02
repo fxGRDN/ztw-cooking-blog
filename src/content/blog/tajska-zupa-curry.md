@@ -1,10 +1,10 @@
 ---
-title: 'Tajska zupa curry'
-description: 'Aromatyczna, rozgrzewająca tajska zupa curry z kurczakiem, świeżymi warzywami i mlekiem kokosowym. Szybki i wyśmienity obiad!'
-pubDate: '2025-05-18'
-author: 'Kacper Borys'
-heroImage: '../../assets/blog-placeholder-4.jpg'
-tags: ['azjatycka', 'pikantne', 'zupa', 'kurczak', 'wege-opcja']
+title: "Tajska zupa curry"
+description: "Aromatyczna, rozgrzewająca tajska zupa curry z kurczakiem, świeżymi warzywami i mlekiem kokosowym. Szybki i wyśmienity obiad!"
+pubDate: "2025-05-18"
+author: "Kacper Borys"
+heroImage: "../../assets/recipes/tajska-zupa-curry.png"
+tags: ["azjatycka", "pikantne", "zupa", "kurczak", "wege-opcja"]
 ---
 
 Aromatyczna, kremowa i wyrazista tajska zupa curry to idealna propozycja na rozgrzewający obiad lub kolację. Połączenie mleka kokosowego, pasty curry, imbiru i świeżych warzyw tworzy harmonijną kompozycję smaków prosto z ulic Bangkoku.
