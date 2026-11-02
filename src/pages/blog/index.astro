@@ -13,12 +13,16 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="pl">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Przepisy | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		<style>
 			main {
 				width: 960px;
+			}
+			h1 {
+				text-align: center;
+				margin-bottom: 2rem;
 			}
 			ul {
 				display: flex;
@@ -56,11 +60,32 @@ const posts = (await getCollection('blog')).sort(
 			.title {
 				margin: 0;
 				color: rgb(var(--black));
-				line-height: 1;
+				line-height: 1.2;
 			}
 			.date {
-				margin: 0;
+				margin: 0.25rem 0 0.5rem 0;
 				color: rgb(var(--gray));
+				font-size: 0.9rem;
+			}
+			.author {
+				color: rgb(var(--gray-dark));
+			}
+			.tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.4rem;
+				margin-top: 0.5rem;
+			}
+			ul li:first-child .tags {
+				justify-content: center;
+			}
+			.tag {
+				background-color: rgb(var(--gray-light));
+				color: rgb(var(--gray-dark));
+				font-size: 0.75rem;
+				padding: 0.15rem 0.5rem;
+				border-radius: 9999px;
+				font-weight: 500;
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
@@ -71,7 +96,7 @@ const posts = (await getCollection('blog')).sort(
 			}
 			@media (max-width: 720px) {
 				ul {
-					gap: 0.5em;
+					gap: 1.5em;
 				}
 				ul li {
 					width: 100%;
@@ -83,28 +108,44 @@ const posts = (await getCollection('blog')).sort(
 				ul li:first-child .title {
 					font-size: 1.563em;
 				}
+				.tags {
+					justify-content: center;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
+			<h1>Książka z przepisami</h1>
 			<section>
-				<ul>
-					{posts.map((post) => (
-						<li>
-							<a href={`/blog/${post.id}/`}>
-								{post.data.heroImage && (
-									<Image width={720} height={360} src={post.data.heroImage} alt="" />
-								)}
-								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>
-						</li>
-					))}
-				</ul>
+				{posts.length > 0 ? (
+					<ul>
+						{posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}/`}>
+									{post.data.heroImage && (
+										<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
+									)}
+									<h4 class="title">{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+										{post.data.author && <span class="author"> • {post.data.author}</span>}
+									</p>
+									{post.data.tags && post.data.tags.length > 0 && (
+										<div class="tags">
+											{post.data.tags.map((tag) => (
+												<span class="tag">#{tag}</span>
+											))}
+										</div>
+									)}
+								</a>
+							</li>
+						))}
+					</ul>
+				) : (
+					<p style="text-align: center;">Brak przepisów do wyświetlenia.</p>
+				)}
 			</section>
 		</main>
 		<Footer />
