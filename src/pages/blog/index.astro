@@ -10,106 +10,248 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+// Zbierz unikalne tagi ze wszystkich przepisów
+const allTags = Array.from(
+	new Set(posts.flatMap((p) => p.data.tags || [])),
+).sort();
 ---
 
 <!doctype html>
 <html lang="pl">
 	<head>
-		<BaseHead title={`Przepisy | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Książka Przepisów | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		<style>
-			main {
-				width: 960px;
-			}
-			h1 {
+			.page-header {
 				text-align: center;
-				margin-bottom: 2rem;
+				margin-bottom: 2.5rem;
+				padding: 2.5rem 1.5rem;
+				background: linear-gradient(135deg, #ffffff 0%, #fffbf5 100%);
+				border: 1px solid var(--border-subtle);
+				border-radius: 24px;
+				box-shadow: var(--box-shadow);
 			}
-			ul {
+
+			.page-badge {
+				display: inline-flex;
+				align-items: center;
+				padding: 0.3rem 0.85rem;
+				background: var(--accent-light);
+				color: var(--accent);
+				border-radius: 9999px;
+				font-size: 0.85rem;
+				font-weight: 700;
+				margin-bottom: 0.8rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+
+			.page-title {
+				font-size: 2.8rem;
+				font-weight: 800;
+				color: var(--text-main);
+				margin-bottom: 0.6rem;
+				letter-spacing: -0.02em;
+			}
+
+			.page-description {
+				font-size: 1.15rem;
+				color: var(--text-muted);
+				max-width: 600px;
+				margin: 0 auto;
+			}
+
+			/* Pasek filtrów tagów */
+			.filter-bar {
 				display: flex;
 				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1.2;
-			}
-			.date {
-				margin: 0.25rem 0 0.5rem 0;
-				color: rgb(var(--gray));
-				font-size: 0.9rem;
-			}
-			.author {
-				color: rgb(var(--gray-dark));
-			}
-			.tags {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.4rem;
-				margin-top: 0.5rem;
-			}
-			ul li:first-child .tags {
 				justify-content: center;
+				gap: 0.5rem;
+				margin-bottom: 2.5rem;
+				padding: 0.5rem;
 			}
-			.tag {
-				background-color: rgb(var(--gray-light));
-				color: rgb(var(--gray-dark));
+
+			.filter-btn {
+				background: var(--bg-card);
+				border: 1px solid var(--border-subtle);
+				color: var(--text-muted);
+				font-family: inherit;
+				font-size: 0.88rem;
+				font-weight: 600;
+				padding: 0.45rem 1rem;
+				border-radius: 9999px;
+				cursor: pointer;
+				transition: all 0.18s ease;
+				box-shadow: 0 2px 4px rgba(60, 40, 25, 0.03);
+			}
+
+			.filter-btn:hover {
+				color: var(--accent);
+				border-color: var(--accent);
+				transform: translateY(-1px);
+			}
+
+			.filter-btn.active {
+				background: var(--accent);
+				color: white;
+				border-color: var(--accent);
+				box-shadow: 0 3px 10px var(--accent-glow);
+			}
+
+			/* Siatka przepisów */
+			.recipes-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+				gap: 2rem;
+			}
+
+			.recipe-card {
+				display: flex;
+				flex-direction: column;
+				background: var(--bg-card);
+				border-radius: 20px;
+				overflow: hidden;
+				border: 1px solid var(--border-subtle);
+				box-shadow: var(--box-shadow);
+				text-decoration: none;
+				color: inherit;
+				transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+			}
+
+			.recipe-card:hover {
+				transform: translateY(-6px);
+				box-shadow: var(--box-shadow-hover);
+				border-color: rgba(194, 65, 12, 0.3);
+			}
+
+			.recipe-image-wrap {
+				position: relative;
+				width: 100%;
+				height: 220px;
+				overflow: hidden;
+				background: var(--bg-warm);
+			}
+
+			.recipe-card img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 0;
+				transition: transform 0.4s ease;
+			}
+
+			.recipe-card:hover img {
+				transform: scale(1.05);
+			}
+
+			.recipe-badge {
+				position: absolute;
+				top: 12px;
+				right: 12px;
+				background: rgba(255, 255, 255, 0.94);
+				backdrop-filter: blur(8px);
+				padding: 0.25rem 0.65rem;
+				border-radius: 9999px;
+				font-size: 0.78rem;
+				font-weight: 700;
+				color: var(--accent);
+				box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+			}
+
+			.recipe-card-content {
+				padding: 1.6rem;
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+			}
+
+			.recipe-meta-row {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				font-size: 0.85rem;
+				color: var(--text-muted);
+				margin-bottom: 0.6rem;
+			}
+
+			.recipe-author-tag {
+				font-weight: 700;
+				color: var(--accent);
+			}
+
+			.recipe-title {
+				font-size: 1.45rem;
+				font-weight: 700;
+				line-height: 1.3;
+				margin: 0 0 0.6rem 0;
+				color: var(--text-main);
+				transition: color 0.18s ease;
+			}
+
+			.recipe-card:hover .recipe-title {
+				color: var(--accent);
+			}
+
+			.recipe-desc {
+				font-size: 0.95rem;
+				color: var(--text-muted);
+				line-height: 1.6;
+				margin: 0 0 1rem 0;
+				flex-grow: 1;
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+
+			.recipe-card-footer {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-top: auto;
+				padding-top: 0.8rem;
+				border-top: 1px solid var(--border-subtle);
+			}
+
+			.card-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.35rem;
+			}
+
+			.tag-pill {
+				background: var(--bg-page);
+				color: var(--text-muted);
 				font-size: 0.75rem;
 				padding: 0.15rem 0.5rem;
 				border-radius: 9999px;
-				font-weight: 500;
+				font-weight: 600;
 			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
+
+			.read-more {
+				font-size: 0.88rem;
+				font-weight: 700;
+				color: var(--accent);
+				display: flex;
+				align-items: center;
+				gap: 0.2rem;
 			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
+
+			.no-results {
+				text-align: center;
+				padding: 3rem 1rem;
+				color: var(--text-muted);
+				font-size: 1.1rem;
+				display: none;
 			}
+
 			@media (max-width: 720px) {
-				ul {
-					gap: 1.5em;
+				.recipes-grid {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
 				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-				.tags {
-					justify-content: center;
+				.page-title {
+					font-size: 2.1rem;
 				}
 			}
 		</style>
@@ -117,37 +259,124 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-			<h1>Książka z przepisami</h1>
+			<header class="page-header">
+				<div class="page-badge">Kolekcja kulinarna</div>
+				<h1 class="page-title">Książka Przepisów</h1>
+				<p class="page-description">
+					Sprawdzone receptury z różnych zakątków świata i tradycyjnej kuchni domowej. Wybierz swój ulubiony smak.
+				</p>
+			</header>
+
+			<!-- Filtrowanie po tagach -->
+			<div class="filter-bar">
+				<button class="filter-btn active" data-filter="all">
+					Wszystkie ({posts.length})
+				</button>
+				{allTags.map((tag) => (
+					<button class="filter-btn" data-filter={tag}>
+						#{tag}
+					</button>
+				))}
+			</div>
+
+			<!-- Lista przepisów -->
 			<section>
 				{posts.length > 0 ? (
-					<ul>
+					<div class="recipes-grid" id="recipes-grid">
 						{posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
+							<a
+								href={`/blog/${post.id}/`}
+								class="recipe-card"
+								data-tags={JSON.stringify(post.data.tags || [])}
+							>
+								<div class="recipe-image-wrap">
 									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
+										<Image width={720} height={400} src={post.data.heroImage} alt={post.data.title} />
 									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
+									{post.data.tags && post.data.tags[0] && (
+										<span class="recipe-badge">#{post.data.tags[0]}</span>
+									)}
+								</div>
+								<div class="recipe-card-content">
+									<div class="recipe-meta-row">
+										{post.data.author && (
+											<span class="recipe-author-tag">
+												{post.data.author}
+											</span>
+										)}
 										<FormattedDate date={post.data.pubDate} />
-										{post.data.author && <span class="author"> • {post.data.author}</span>}
-									</p>
-									{post.data.tags && post.data.tags.length > 0 && (
-										<div class="tags">
-											{post.data.tags.map((tag) => (
-												<span class="tag">#{tag}</span>
+									</div>
+									<h2 class="recipe-title">{post.data.title}</h2>
+									<p class="recipe-desc">{post.data.description}</p>
+									<div class="recipe-card-footer">
+										<div class="card-tags">
+											{post.data.tags?.slice(0, 3).map((tag) => (
+												<span class="tag-pill">#{tag}</span>
 											))}
 										</div>
-									)}
-								</a>
-							</li>
+										<span class="read-more">Zobacz przepis &rarr;</span>
+									</div>
+								</div>
+							</a>
 						))}
-					</ul>
+					</div>
 				) : (
 					<p style="text-align: center;">Brak przepisów do wyświetlenia.</p>
 				)}
+
+				<div class="no-results" id="no-results">
+					Nie znaleziono przepisów dla wybranego tagu.
+				</div>
 			</section>
 		</main>
 		<Footer />
+
+		<!-- Skrypt interaktywnego filtrowania tagów -->
+		<script>
+			const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+			const recipeCards = document.querySelectorAll<HTMLAnchorElement>('.recipe-card');
+			const noResults = document.getElementById('no-results');
+
+			// Sprawdź czy w adresie URL jest parametr ?tag=
+			const urlParams = new URLSearchParams(window.location.search);
+			const initialTag = urlParams.get('tag');
+
+			function applyFilter(selectedTag: string) {
+				filterButtons.forEach((btn) => {
+					if (btn.dataset.filter === selectedTag) {
+						btn.classList.add('active');
+					} else {
+						btn.classList.remove('active');
+					}
+				});
+
+				let visibleCount = 0;
+
+				recipeCards.forEach((card) => {
+					const tags: string[] = JSON.parse(card.dataset.tags || '[]');
+					if (selectedTag === 'all' || tags.includes(selectedTag)) {
+						card.style.display = 'flex';
+						visibleCount++;
+					} else {
+						card.style.display = 'none';
+					}
+				});
+
+				if (noResults) {
+					noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+				}
+			}
+
+			if (initialTag) {
+				applyFilter(initialTag);
+			}
+
+			filterButtons.forEach((btn) => {
+				btn.addEventListener('click', () => {
+					const filter = btn.dataset.filter || 'all';
+					applyFilter(filter);
+				});
+			});
+		</script>
 	</body>
 </html>

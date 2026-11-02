@@ -7,11 +7,11 @@ heroImage: '../../assets/blog-placeholder-3.jpg'
 tags: ['azjatycka', 'japońska', 'zupa', 'ramen', 'drób']
 ---
 
-Domowy ramen wcale nie musi wymagać całego dnia stania przy garnkach! Ten przepis na ramen z pastą miso i soczystą piersią z kurczaka pozwala cieszyć się bogatym, głębokim umami i rozgrzewającym smakiem japońskiej zupy w zaciszu własnej kuchni.
+Domowy ramen wcale nie musi wymagać całego dnia stania przy garnkach. Ten przepis na ramen z pastą miso i soczystą piersią z kurczaka pozwala cieszyć się bogatym, głębokim umami i rozgrzewającym smakiem japońskiej zupy w zaciszu własnej kuchni.
 
 ---
 
-### 🛒 Składniki
+### Składniki
 
 - **Bulion drobiowy:** 1,5 litra (doskonale sprawdzi się klasyczny, czysty domowy rosół)
 - **Pasta miso:** 3–4 łyżki (najlepiej łagodna, jasna pasta *Shiro Miso*)
@@ -26,7 +26,7 @@ Domowy ramen wcale nie musi wymagać całego dnia stania przy garnkach! Ten prze
 
 ---
 
-### 👩‍🍳 Sposób przygotowania
+### Sposób przygotowania
 
 1. **Aromatyzowanie wywaru:**  
    Do garnka wlej gotowy bulion drobiowy. Wrzuć plastry świeżego imbiru, rozgniecione ząbki czosnku oraz opcjonalnie suszone lub świeże grzyby shiitake. Gotuj na małym ogniu pod przykryciem przez około 20 minut, aby wywar przeszedł intensywnym aromatem dodatków. Pod koniec gotowania dodaj sos sojowy.

@@ -1,63 +1,44 @@
-# Astro Starter Kit: Blog
+# Blog Kulinarny (Astro)
 
-```sh
-bun create astro@latest -- --template blog
-```
+Projekt bloga kulinarnego przygotowany w Astro z przepisami autorstwa **Kacpra Borysa** oraz **Dominika Maślaka**.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📖 Dokumentacja
 
-Features:
+- [Wyłączone techniki optymalizacji (docs/OPTIMIZATIONS.md)](./docs/OPTIMIZATIONS.md) – szczegółowy opis i lista wszystkich wyłączonych technik optymalizacji w Astro i Vite.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+### Wyłączone techniki optymalizacji w projekcie:
+1. **Kompresja HTML (`compressHTML: false`)** – zachowanie pełnych odstępów, wcięć i struktury kodu HTML bez minifikacji.
+2. **Optymalizacja obrazów (`passthroughImageService()`)** – wyłączone skalowanie i konwersja do WebP przez Sharp; serwowanie oryginalnych plików graficznych.
+3. **Inlinowanie stylów CSS (`build.inlineStylesheets: 'never'`)** – brak wstrzykiwania CSS do tagów `<style>`; wszystkie style jako osobne pliki `.css`.
+4. **Minifikacja JavaScript (`vite.build.minify: false`)** – zachowanie czytelnego kodu JS bez usuwania komentarzy i białych znaków.
+5. **Minifikacja CSS (`vite.build.cssMinify: false`)** – wyłączona kompresja arkuszy stylów.
+6. **Inlinowanie zasobów jako Base64 (`vite.build.assetsInlineLimit: 0`)** – brak osadzania małych plików jako Data URI.
+7. **Preloading i optymalizacja czcionek** – wyłączone preloadingi oraz kalkulacje metryk CLS; tradycyjne reguły `@font-face`.
+8. **Prefetching (`prefetch: false`)** – wyłączone wstępne pobieranie stron w tle.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Struktura projektu
 
 ```text
+├── docs/
+│   └── OPTIMIZATIONS.md
 ├── public/
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── assets/
+│   ├── components/
+│   ├── content/
+│   │   └── blog/
+│   ├── layouts/
+│   └── pages/
 ├── astro.config.mjs
-├── README.md
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🧞 Polecenia
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+| Komenda         | Działanie                                        |
+| :-------------- | :----------------------------------------------- |
+| `bun install`   | Instalacja zależności                            |
+| `bun dev`       | Uruchomienie lokalnego serwera na `localhost:4321` |
+| `bun run build` | Zbudowanie wersji produkcyjnej do katalogu `dist/` |
+| `bun preview`   | Podgląd zbudowanej strony lokalnie               |

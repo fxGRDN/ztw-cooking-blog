@@ -7,11 +7,11 @@ heroImage: '../../assets/blog-placeholder-2.jpg'
 tags: ['kuchnia polska', 'tradycyjne', 'obiad', 'wieprzowina']
 ---
 
-Klasyczny, aromatyczny bigos z kiszonej kapusty to serce polskiej kuchni. Gotowany powoli z dodatkiem leśnych grzybów, wędliny i suszonych śliwek lub powideł zyskuje niepowtarzalny, głęboki aromat. Im częściej podgrzewany, tym staje się lepszy!
+Klasyczny, aromatyczny bigos z kiszonej kapusty to serce polskiej kuchni. Gotowany powoli z dodatkiem leśnych grzybów, wędliny i suszonych śliwek lub powideł zyskuje niepowtarzalny, głęboki aromat. Im częściej podgrzewany, tym staje się lepszy.
 
 ---
 
-### 🛒 Składniki
+### Składniki
 
 - **500 g mięsa wieprzowego** (np. karkówki lub łopatki)
 - **200 g dobrej jakości kiełbasy** (np. podwędzanej)
@@ -29,7 +29,7 @@ Klasyczny, aromatyczny bigos z kiszonej kapusty to serce polskiej kuchni. Gotowa
 
 ---
 
-### 👩‍🍳 Sposób przygotowania
+### Sposób przygotowania
 
 1. **Obsmażenie mięsa:**  
    Mięso wieprzowe pokrój w zgrabną kostkę. Cebulę posiekaj w kosteczkę i zeszklij na oleju w dużym garnku z grubym dnem. Dodaj pokrojone mięso i dokładnie je obsmaż ze wszystkich stron na złoty kolor.
@@ -50,4 +50,4 @@ Klasyczny, aromatyczny bigos z kiszonej kapusty to serce polskiej kuchni. Gotowa
    Na suchej patelni podpraż mąkę – gdy zacznie delikatnie brązowieć, dodaj łyżkę masła i energicznie mieszaj, aż masło całkowicie się rozpuści.
 
 7. **Zagęszczenie i finał:**  
-   Trzymając patelnię na niewielkim ogniu, stopniowo dodawaj do zasmażki po kilka łyżek kapusty z garnka, nieustannie mieszając. Następnie przełóż całą zawartość patelni z powrotem do garnka z bigosem, dokładnie wymieszaj i zagotuj. Bigos jest gotowy do podania, najlepiej smakuje z wiejskim chlebem na zakwasie!
+   Trzymając patelnię na niewielkim ogniu, stopniowo dodawaj do zasmażki po kilka łyżek kapusty z garnka, nieustannie mieszając. Następnie przełóż całą zawartość patelni z powrotem do garnka z bigosem, dokładnie wymieszaj i zagotuj. Bigos jest gotowy do podania, najlepiej smakuje ze świeżym pieczywem.

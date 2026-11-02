@@ -11,7 +11,7 @@ Aromatyczna, kremowa i wyrazista tajska zupa curry to idealna propozycja na rozg
 
 ---
 
-### 🛒 Składniki
+### Składniki
 
 1. **Świeży imbir** (starty)
 2. **Czosnek** (starty)
@@ -29,7 +29,7 @@ Aromatyczna, kremowa i wyrazista tajska zupa curry to idealna propozycja na rozg
 
 ---
 
-### 👩‍🍳 Sposób przygotowania
+### Sposób przygotowania
 
 1. **Przygotowanie składników:**  
    Pokrój pierś z kurczaka w kostkę lub cienkie paski. Papryczkę chilli drobno posiekaj (jeśli wolisz łagodniejsze smaki, usuń nasiona). Zetrzyj imbir oraz ząbki czosnku na tarce o drobnych oczkach.
@@ -51,7 +51,7 @@ Aromatyczna, kremowa i wyrazista tajska zupa curry to idealna propozycja na rozg
 
 ---
 
-### 💡 Wskazówki i warianty
+### Wskazówki i warianty
 
 - **Wersja wegetariańska / wegańska (wege / vegetarian):** Zamiast piersi z kurczaka możesz użyć pokrojonego w kostkę tofu lub odsączonej ciecierzycy. Upewnij się również, że wybrana pasta curry nie zawiera w składzie pasty krewetkowej.
 - **Dodatki:** Zupę warto posypać świeżą kolendrą, dymką oraz skropić świeżo wyciśniętym sokiem z limonki dla zbalansowania smaków.

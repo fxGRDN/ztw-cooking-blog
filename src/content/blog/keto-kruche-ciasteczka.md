@@ -7,11 +7,11 @@ heroImage: '../../assets/blog-placeholder-1.jpg'
 tags: ['keto', 'deser', 'wegetariańskie', 'orzechowe', 'szybkie']
 ---
 
-Szukasz szybkiego, słodkiego i jednocześnie zdrowego wypieku zgodnego z dietą keto? Te kruche ciasteczka orzechowe to prawdziwy hit – zrobisz je z zaledwie dwóch podstawowych składników, a smakują wyśmienicie!
+Szukasz szybkiego, słodkiego i jednocześnie zdrowego wypieku zgodnego z dietą keto? Te kruche ciasteczka orzechowe to sprawdzona propozycja – zrobisz je z zaledwie dwóch podstawowych składników, a smakują wyśmienicie.
 
 ---
 
-### 🛒 Składniki
+### Składniki
 
 - **2 jajka**
 - **4 czubate łyżki masła orzechowego 100%** (z orzeszków ziemnych, migdałowego lub nerkowców)
@@ -19,7 +19,7 @@ Szukasz szybkiego, słodkiego i jednocześnie zdrowego wypieku zgodnego z dietą
 
 ---
 
-### 👩‍🍳 Sposób przygotowania
+### Sposób przygotowania
 
 1. **Przygotowanie masy:**  
    Połącz wszystkie składniki w misce (jajka, masło orzechowe oraz opcjonalny słodzik) i dokładnie zmiksuj mikserem lub wymieszaj trzepaczką do uzyskania gładkiej, jednolitej i gęstej masy.
@@ -38,7 +38,7 @@ Szukasz szybkiego, słodkiego i jednocześnie zdrowego wypieku zgodnego z dietą
 
 ---
 
-### 💡 Wskazówki
+### Wskazówki
 
 - Możesz użyć zarówno masła orzechowego gładkiego (*smooth*), jak i z kawałkami orzechów (*crunchy*), aby uzyskać przyjemną chrupkość.
 - Przed pieczeniem wierzch ciastek możesz delikatnie ozdobić widelcem, tworząc kratkę, lub posypać szczyptą soli morskiej.

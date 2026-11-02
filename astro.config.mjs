@@ -2,34 +2,34 @@
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { defineConfig, fontProviders } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 
 // https://astro.build/config
+// WSZYSTKIE TECHNIKI OPTYMALIZACYJNE ASTRO I VITE WYŁĄCZONE:
+// 1. compressHTML: false - wyłączona kompresja i minifikacja HTML (pełne zachowanie białych znaków)
+// 2. build.inlineStylesheets: 'never' - wyłączone wstrzykiwanie krytycznego CSS w tagi <style> (zawsze osobne pliki .css)
+// 3. image.service: passthroughImageService() - wyłączona optymalizacja obrazów (Sharp), brak konwersji do WebP/AVIF, brak skalowania
+// 4. prefetch: false - wyłączone wstępne pobieranie podstron (prefetching)
+// 5. vite.build.minify: false - wyłączona minifikacja kodu JavaScript
+// 6. vite.build.cssMinify: false - wyłączona minifikacja arkuszy stylów CSS
+// 7. vite.build.assetsInlineLimit: 0 - wyłączone inlinowanie małych zasobów jako Base64 w HTML/CSS
+// 8. fonts: [] - wyłączona automatyczna optymalizacja czcionek, preloading i generowanie fallback metrics
 export default defineConfig({
 	site: 'https://example.com',
-	integrations: [mdx(), sitemap()],
-	fonts: [
-		{
-			provider: fontProviders.local(),
-			name: 'Atkinson',
-			cssVariable: '--font-atkinson',
-			fallbacks: ['sans-serif'],
-			options: {
-				variants: [
-					{
-						src: ['./src/assets/fonts/atkinson-regular.woff'],
-						weight: 400,
-						style: 'normal',
-						display: 'swap',
-					},
-					{
-						src: ['./src/assets/fonts/atkinson-bold.woff'],
-						weight: 700,
-						style: 'normal',
-						display: 'swap',
-					},
-				],
-			},
+	compressHTML: false,
+	build: {
+		inlineStylesheets: 'never',
+	},
+	image: {
+		service: passthroughImageService(),
+	},
+	prefetch: false,
+	vite: {
+		build: {
+			minify: false,
+			cssMinify: false,
+			assetsInlineLimit: 0,
 		},
-	],
+	},
+	integrations: [mdx(), sitemap()],
 });

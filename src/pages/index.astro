@@ -1,169 +1,524 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
 <!doctype html>
 <html lang="pl">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			.hero {
-				text-align: center;
-				padding: 2rem 0;
-			}
-			.hero h1 {
-				font-size: 2.8rem;
-				margin-bottom: 0.5rem;
-			}
-			.hero p {
-				font-size: 1.25rem;
-				color: rgb(var(--gray));
-				max-width: 650px;
-				margin: 0 auto 1.5rem auto;
-			}
-			.section-title {
-				margin-top: 2rem;
-				margin-bottom: 1.5rem;
-				border-bottom: 2px solid rgb(var(--gray-light));
-				padding-bottom: 0.5rem;
-			}
-			.recipe-card {
-				display: block;
-				background: #fff;
-				border-radius: 12px;
-				overflow: hidden;
-				box-shadow: var(--box-shadow);
-				text-decoration: none;
-				color: inherit;
-				transition: transform 0.2s ease, box-shadow 0.2s ease;
-				margin-bottom: 2rem;
-			}
-			.recipe-card:hover {
-				transform: translateY(-4px);
-			}
-			.recipe-card img {
-				width: 100%;
-				height: auto;
-				max-height: 400px;
-				object-fit: cover;
-				border-radius: 12px 12px 0 0;
-			}
-			.recipe-card-content {
-				padding: 1.5rem;
-			}
-			.recipe-card-content h3 {
-				margin: 0 0 0.5rem 0;
-				color: rgb(var(--black));
-			}
-			.recipe-card-content p {
-				color: rgb(var(--gray-dark));
-				margin-bottom: 0.8rem;
-			}
-			.recipe-meta {
-				font-size: 0.875rem;
-				color: rgb(var(--gray));
-				margin-bottom: 0.5rem;
-			}
-			.tags {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.4rem;
-				margin-top: 0.5rem;
-			}
-			.tag {
-				background-color: rgb(var(--gray-light));
-				color: rgb(var(--gray-dark));
-				font-size: 0.75rem;
-				padding: 0.15rem 0.5rem;
-				border-radius: 9999px;
-				font-weight: 500;
-			}
-			.view-all {
-				text-align: center;
-				margin: 2rem 0;
-			}
-			.btn {
-				display: inline-block;
-				padding: 0.75rem 1.5rem;
-				background-color: var(--accent);
-				color: white;
-				border-radius: 8px;
-				text-decoration: none;
-				font-weight: bold;
-				transition: background-color 0.2s ease;
-			}
-			.btn:hover {
-				background-color: var(--accent-dark);
-				color: white;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section class="hero">
-				<h1>🍲 Witaj na Blogu Kulinarnym!</h1>
-				<p>
-					Odkryj proste, wyśmienite i pełne aromatu przepisy na każdą okazję. Gotuj z pasją w domowym zaciszu!
-				</p>
-			</section>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <style>
+            /* Hero Banner */
+            .hero {
+                position: relative;
+                text-align: center;
+                padding: 3.5rem 2rem;
+                background: linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #fff7ed 50%,
+                    #fef3c7 100%
+                );
+                border: 1px solid var(--border-subtle);
+                border-radius: 28px;
+                box-shadow: var(--box-shadow);
+                margin-bottom: 3.5rem;
+                overflow: hidden;
+            }
 
-			<section>
-				<h2 class="section-title">Najnowsze przepisy</h2>
-				{posts.length > 0 ? (
-					<div>
-						{posts.slice(0, 3).map((post) => (
-							<a href={`/blog/${post.id}/`} class="recipe-card">
-								{post.data.heroImage && (
-									<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
-								)}
-								<div class="recipe-card-content">
-									<h3>{post.data.title}</h3>
-									<p>{post.data.description}</p>
-									<div class="recipe-meta">
-										<span>Data dodania: <FormattedDate date={post.data.pubDate} /></span>
-										{post.data.author && <span> • Autor: {post.data.author}</span>}
-									</div>
-									{post.data.tags && post.data.tags.length > 0 && (
-										<div class="tags">
-											{post.data.tags.map((tag) => (
-												<span class="tag">#{tag}</span>
-											))}
-										</div>
-									)}
-								</div>
-							</a>
-						))}
-					</div>
-				) : (
-					<p>Brak przepisów do wyświetlenia.</p>
-				)}
+            .hero-badge {
+                display: inline-flex;
+                align-items: center;
+                padding: 0.35rem 0.95rem;
+                background: var(--bg-card);
+                border: 1px solid var(--border-subtle);
+                border-radius: 9999px;
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: var(--accent);
+                margin-bottom: 1.2rem;
+                box-shadow: 0 2px 6px rgba(60, 40, 25, 0.04);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
 
-				<div class="view-all">
-					<a href="/blog" class="btn">Zobacz wszystkie przepisy &rarr;</a>
-				</div>
-			</section>
+            .hero h1 {
+                font-size: 3.2rem;
+                font-weight: 800;
+                letter-spacing: -0.03em;
+                line-height: 1.15;
+                color: var(--text-main);
+                margin-bottom: 1rem;
+            }
 
-			<section>
-				<h2 class="section-title">O czym jest ten blog?</h2>
-				<p>
-					Nasz blog to miejsce stworzone z miłości do pysznego jedzenia. Znajdziesz tutaj sprawdzone receptury, porady kuchenne oraz inspiracje z różnych zakątków świata – od klasycznych zup po dania kuchni orientalnej.
-				</p>
-				<p>
-					Każdy przepis zawiera listę niezbędnych składników oraz instrukcję krok po kroku, dzięki czemu gotowanie stanie się proste i przyjemne zarówno dla początkujących, jak i zaawansowanych kucharzy.
-				</p>
-			</section>
-		</main>
-		<Footer />
-	</body>
+            .hero h1 span.gradient {
+                background: linear-gradient(
+                    120deg,
+                    var(--accent) 0%,
+                    var(--secondary) 100%
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+                color: var(--text-muted);
+                max-width: 680px;
+                margin: 0 auto 1.8rem auto;
+                line-height: 1.6;
+            }
+
+            .hero-authors {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+                font-size: 0.95rem;
+                color: var(--text-muted);
+            }
+
+            .hero-author-pill {
+                display: inline-flex;
+                align-items: center;
+                padding: 0.35rem 0.95rem;
+                background: rgba(255, 255, 255, 0.85);
+                border-radius: 9999px;
+                border: 1px solid var(--border-subtle);
+                font-weight: 600;
+                color: var(--text-main);
+            }
+
+            /* Sekcja przepisów */
+            .section-header {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                margin-bottom: 2rem;
+                padding-bottom: 0.8rem;
+                border-bottom: 2px solid var(--border-subtle);
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin: 0;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+                color: var(--text-muted);
+                margin: 0.2rem 0 0 0;
+            }
+
+            .recipes-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .recipe-card {
+                display: flex;
+                flex-direction: column;
+                background: var(--bg-card);
+                border-radius: 20px;
+                overflow: hidden;
+                border: 1px solid var(--border-subtle);
+                box-shadow: var(--box-shadow);
+                text-decoration: none;
+                color: inherit;
+                transition:
+                    transform 0.25s cubic-bezier(0.2, 0, 0, 1),
+                    box-shadow 0.25s ease,
+                    border-color 0.25s ease;
+            }
+
+            .recipe-card:hover {
+                transform: translateY(-6px);
+                box-shadow: var(--box-shadow-hover);
+                border-color: rgba(194, 65, 12, 0.3);
+            }
+
+            .recipe-image-wrap {
+                position: relative;
+                width: 100%;
+                height: 230px;
+                overflow: hidden;
+                background: var(--bg-warm);
+            }
+
+            .recipe-card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 0;
+                transition: transform 0.4s ease;
+            }
+
+            .recipe-card:hover img {
+                transform: scale(1.05);
+            }
+
+            .recipe-card-badge {
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                background: rgba(255, 255, 255, 0.92);
+                backdrop-filter: blur(8px);
+                padding: 0.25rem 0.65rem;
+                border-radius: 9999px;
+                font-size: 0.78rem;
+                font-weight: 700;
+                color: var(--accent);
+                border: 1px solid rgba(255, 255, 255, 0.6);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            }
+
+            .recipe-card-content {
+                padding: 1.6rem;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+            }
+
+            .recipe-meta-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 0.85rem;
+                color: var(--text-muted);
+                margin-bottom: 0.6rem;
+            }
+
+            .recipe-author-tag {
+                font-weight: 700;
+                color: var(--accent);
+            }
+
+            .recipe-title {
+                font-size: 1.45rem;
+                font-weight: 700;
+                line-height: 1.3;
+                margin: 0 0 0.6rem 0;
+                color: var(--text-main);
+                transition: color 0.18s ease;
+            }
+
+            .recipe-card:hover .recipe-title {
+                color: var(--accent);
+            }
+
+            .recipe-desc {
+                font-size: 0.95rem;
+                color: var(--text-muted);
+                line-height: 1.6;
+                margin: 0 0 1rem 0;
+                flex-grow: 1;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .recipe-card-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: auto;
+                padding-top: 0.8rem;
+                border-top: 1px solid var(--border-subtle);
+            }
+
+            .card-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.35rem;
+            }
+
+            .tag-pill {
+                background: var(--bg-page);
+                color: var(--text-muted);
+                font-size: 0.75rem;
+                padding: 0.15rem 0.5rem;
+                border-radius: 9999px;
+                font-weight: 600;
+            }
+
+            .read-more {
+                font-size: 0.88rem;
+                font-weight: 700;
+                color: var(--accent);
+                display: flex;
+                align-items: center;
+                gap: 0.2rem;
+            }
+
+            .view-all-container {
+                text-align: center;
+                margin: 3rem 0;
+            }
+
+            .btn-cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.85rem 2rem;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent) 0%,
+                    var(--accent-hover) 100%
+                );
+                color: white;
+                border-radius: 9999px;
+                font-weight: 700;
+                font-size: 1.05rem;
+                box-shadow: 0 4px 14px var(--accent-glow);
+                transition: all 0.2s ease;
+            }
+
+            .btn-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(194, 65, 12, 0.28);
+                color: white;
+            }
+
+            /* Sekcja o autorach */
+            .features-section {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 1.5rem;
+                margin: 4rem 0 2rem 0;
+            }
+
+            .feature-card {
+                background: var(--bg-card);
+                border: 1px solid var(--border-subtle);
+                border-radius: 20px;
+                padding: 1.8rem;
+                box-shadow: var(--box-shadow);
+                text-align: center;
+            }
+
+            .feature-icon-svg {
+                width: 36px;
+                height: 36px;
+                color: var(--accent);
+                margin-bottom: 0.8rem;
+                display: inline-block;
+            }
+
+            .feature-card h3 {
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .feature-card p {
+                font-size: 0.95rem;
+                color: var(--text-muted);
+                margin: 0;
+                line-height: 1.6;
+            }
+
+            @media (max-width: 720px) {
+                .hero {
+                    padding: 2.5rem 1.2rem;
+                }
+                .hero h1 {
+                    font-size: 2.3rem;
+                }
+                .hero p {
+                    font-size: 1.05rem;
+                }
+                .recipes-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+                .section-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 0.5rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <Header />
+        <main>
+            <!-- Hero Banner -->
+            <section class="hero">
+                <h1>
+                    Gotuj z pasją, <br />
+                    <span class="gradient">jedz z zachwytem.</span>
+                </h1>
+                <p>
+                    Odkrywaj sprawdzone domowe receptury, wyraziste smaki z
+                    całego świata oraz jasne instrukcje krok po kroku.
+                </p>
+                <div class="hero-authors">
+                    <div class="hero-author-pill">
+                        <strong>Kacper Borys</strong>
+                    </div>
+                    <div class="hero-author-pill">
+                        <strong>Dominik Maślak</strong>
+                    </div>
+                    <div class="hero-author-pill">
+                        <strong>Szymon Pestrowicz</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Najnowsze przepisy -->
+            <section>
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Najnowsze przepisy</h2>
+                        <p class="section-subtitle">
+                            Świeże kulinarne inspiracje prosto z naszych kuchni
+                        </p>
+                    </div>
+                    <a href="/blog" class="read-more">
+                        Zobacz wszystkie ({posts.length}) &rarr;
+                    </a>
+                </div>
+
+                {posts.length > 0 ? (
+                    <div class="recipes-grid">
+                        {posts.map((post) => (
+                            <a href={`/blog/${post.id}/`} class="recipe-card">
+                                <div class="recipe-image-wrap">
+                                    {post.data.heroImage && (
+                                        <Image
+                                            width={720}
+                                            height={400}
+                                            src={post.data.heroImage}
+                                            alt={post.data.title}
+                                        />
+                                    )}
+                                    {post.data.tags && post.data.tags[0] && (
+                                        <span class="recipe-card-badge">
+                                            #{post.data.tags[0]}
+                                        </span>
+                                    )}
+                                </div>
+                                <div class="recipe-card-content">
+                                    <div class="recipe-meta-row">
+                                        {post.data.author && (
+                                            <span class="recipe-author-tag">
+                                                {post.data.author}
+                                            </span>
+                                        )}
+                                        <FormattedDate
+                                            date={post.data.pubDate}
+                                        />
+                                    </div>
+                                    <h3 class="recipe-title">
+                                        {post.data.title}
+                                    </h3>
+                                    <p class="recipe-desc">
+                                        {post.data.description}
+                                    </p>
+                                    <div class="recipe-card-footer">
+                                        <div class="card-tags">
+                                            {post.data.tags
+                                                ?.slice(0, 3)
+                                                .map((tag) => (
+                                                    <span class="tag-pill">
+                                                        #{tag}
+                                                    </span>
+                                                ))}
+                                        </div>
+                                        <span class="read-more">
+                                            Przepis &rarr;
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                ) : (
+                    <p>Brak przepisów do wyświetlenia.</p>
+                )}
+
+                <div class="view-all-container">
+                    <a href="/blog" class="btn-cta">
+                        Zobacz całą książkę przepisów
+                    </a>
+                </div>
+            </section>
+
+            <!-- Cechy bloga -->
+            <section class="features-section">
+                <div class="feature-card">
+                    <svg
+                        class="feature-icon-svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                    </svg>
+                    <h3>Prawdziwe składniki</h3>
+                    <p>
+                        Gotujemy ze świeżych, ogólnodostępnych produktów bez
+                        zbędnych ulepszaczy i sztucznych dodatków.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <svg
+                        class="feature-icon-svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg>
+                    <h3>Pewny efekt</h3>
+                    <p>
+                        Każdy przepis został przetestowany w domowej kuchni, aby
+                        zawsze wychodził idealnie za pierwszym razem.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <svg
+                        class="feature-icon-svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                        <line x1="6" y1="1" x2="6" y2="4" />
+                        <line x1="10" y1="1" x2="10" y2="4" />
+                        <line x1="14" y1="1" x2="14" y2="4" />
+                    </svg>
+                    <h3>Różnorodne smaki</h3>
+                    <p>
+                        Od tradycyjnego polskiego bigosu, przez rozgrzewający
+                        ramen, po dietetyczne wypieki keto.
+                    </p>
+                </div>
+            </section>
+        </main>
+        <Footer />
+    </body>
 </html>

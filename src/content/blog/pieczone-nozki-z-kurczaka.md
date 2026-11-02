@@ -7,11 +7,11 @@ heroImage: '../../assets/blog-placeholder-5.jpg'
 tags: ['drób', 'kurczak', 'obiad', 'pieczone']
 ---
 
-Pieczone pałeczki z kurczaka w słodko-pikantnej glazurze miodowo-musztardowej to sprawdzony przepis na obiad, który zachwyci każdego. Skórka wychodzi cudownie chrupiąca i skarmelizowana, a mięso pozostaje miękkie i pełne soków.
+Pieczone pałeczki z kurczaka w słodko-pikantnej glazurze miodowo-musztardowej to sprawdzony przepis na obiad, który zachwyci każdego. Skórka wychodzi chrupiąca i skarmelizowana, a mięso pozostaje miękkie i pełne soków.
 
 ---
 
-### 🛒 Składniki
+### Składniki
 
 - **8 sztuk podudzi (pałek) z kurczaka** (ok. 1 kg)
 - **3 łyżki oliwy lub oleju rzepakowego**
@@ -28,7 +28,7 @@ Pieczone pałeczki z kurczaka w słodko-pikantnej glazurze miodowo-musztardowej 
 
 ---
 
-### 👩‍🍳 Sposób przygotowania
+### Sposób przygotowania
 
 1. **Przygotowanie marynaty:**  
    W miseczce połącz oliwę (lub olej), musztardę, płynny miód, sos sojowy, przeciśnięty przez praskę czosnek oraz wszystkie przyprawy: słodką i ostrą paprykę, oregano/tymianek, sól oraz pieprz. Wymieszaj na gładką marynatę.
@@ -47,6 +47,6 @@ Pieczone pałeczki z kurczaka w słodko-pikantnej glazurze miodowo-musztardowej 
 
 ---
 
-### 💡 Z czym podawać?
+### Z czym podawać?
 
 Pieczone nóżki doskonale komponują się z pieczonymi ziemniakami, ryżem, purée ziemniaczanym oraz lekką sałatką ze świeżych warzyw lub tradycyjną mizerią.
