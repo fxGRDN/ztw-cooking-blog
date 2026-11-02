@@ -1,12 +1,11 @@
 # Blog Kulinarny (Astro)
 
-Projekt bloga kulinarnego przygotowany w Astro z przepisami autorstwa **Kacpra Borysa** oraz **Dominika Maślaka**.
-
 ## 📖 Dokumentacja
 
 - [Wyłączone techniki optymalizacji (docs/OPTIMIZATIONS.md)](./docs/OPTIMIZATIONS.md) – szczegółowy opis i lista wszystkich wyłączonych technik optymalizacji w Astro i Vite.
 
 ### Wyłączone techniki optymalizacji w projekcie:
+
 1. **Kompresja HTML (`compressHTML: false`)** – zachowanie pełnych odstępów, wcięć i struktury kodu HTML bez minifikacji.
 2. **Optymalizacja obrazów (`passthroughImageService()`)** – wyłączone skalowanie i konwersja do WebP przez Sharp; serwowanie oryginalnych plików graficznych.
 3. **Inlinowanie stylów CSS (`build.inlineStylesheets: 'never'`)** – brak wstrzykiwania CSS do tagów `<style>`; wszystkie style jako osobne pliki `.css`.
@@ -36,9 +35,9 @@ Projekt bloga kulinarnego przygotowany w Astro z przepisami autorstwa **Kacpra B
 
 ## 🧞 Polecenia
 
-| Komenda         | Działanie                                        |
-| :-------------- | :----------------------------------------------- |
-| `bun install`   | Instalacja zależności                            |
+| Komenda         | Działanie                                          |
+| :-------------- | :------------------------------------------------- |
+| `bun install`   | Instalacja zależności                              |
 | `bun dev`       | Uruchomienie lokalnego serwera na `localhost:4321` |
 | `bun run build` | Zbudowanie wersji produkcyjnej do katalogu `dist/` |
-| `bun preview`   | Podgląd zbudowanej strony lokalnie               |
+| `bun preview`   | Podgląd zbudowanej strony lokalnie                 |
