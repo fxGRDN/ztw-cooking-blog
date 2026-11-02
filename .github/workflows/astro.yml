@@ -54,7 +54,7 @@ jobs:
 
       - name: Build with Astro
         env:
-          CONVERT_WEBP: ${{ github.event.inputs.convert_webp ?? 'true' }}
+          CONVERT_WEBP: ${{ inputs.convert_webp }}
         run: |
           bunx astro build \
             --site "${{ steps.pages.outputs.origin }}" \
