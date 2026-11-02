@@ -2,7 +2,7 @@
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { defineConfig, passthroughImageService } from 'astro/config';
+import { defineConfig, passthroughImageService, sharpImageService } from 'astro/config';
 
 // https://astro.build/config
 // WSZYSTKIE TECHNIKI OPTYMALIZACYJNE ASTRO I VITE WYŁĄCZONE:
@@ -14,6 +14,9 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 // 6. vite.build.cssMinify: false - wyłączona minifikacja arkuszy stylów CSS
 // 7. vite.build.assetsInlineLimit: 0 - wyłączone inlinowanie małych zasobów jako Base64 w HTML/CSS
 // 8. fonts: [] - wyłączona automatyczna optymalizacja czcionek, preloading i generowanie fallback metrics
+
+const convertWebp = process.env.CONVERT_WEBP !== 'false';
+
 export default defineConfig({
 	site: 'https://fxgrdn.github.io',
 	base: '/ztw-cooking-blog',
@@ -23,7 +26,7 @@ export default defineConfig({
 		inlineStylesheets: 'never',
 	},
 	image: {
-		service: passthroughImageService(),
+		service: convertWebp ? sharpImageService() : passthroughImageService(),
 	},
 	prefetch: false,
 	vite: {
