@@ -3,7 +3,7 @@ title: 'Kluski na parze (Buchty)'
 description: 'Puszyste, tradycyjne domowe kluski na parze z drożdżowego ciasta, idealne jako baza do słodkich lub wytrawnych dodatków.'
 pubDate: '2025-05-22'
 author: 'Dominik Maślak'
-heroImage: '/images/recipes/kluski-na-parze-main.png'
+heroImage: '/images/recipes/kluski-na-parze.png'
 tags: ['tradycyjne', 'buchty', 'kluski na parze', 'drożdżowe', 'obiad']
 ---
 
