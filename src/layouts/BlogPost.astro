@@ -9,6 +9,7 @@ import Header from '../components/Header.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, author, tags } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <html lang="pl">
@@ -170,7 +171,7 @@ const { title, description, pubDate, updatedDate, heroImage, author, tags } = As
 	<body>
 		<Header />
 		<main>
-			<a href="/blog" class="back-link">
+			<a href={`${base}/blog/`} class="back-link">
 				<span>&larr;</span> Wróć do wszystkich przepisów
 			</a>
 
@@ -199,7 +200,7 @@ const { title, description, pubDate, updatedDate, heroImage, author, tags } = As
 						{tags && tags.length > 0 && (
 							<div class="tags">
 								{tags.map((tag) => (
-									<a href={`/blog?tag=${tag}`} class="tag">
+									<a href={`${base}/blog/?tag=${tag}`} class="tag">
 										#{tag}
 									</a>
 								))}

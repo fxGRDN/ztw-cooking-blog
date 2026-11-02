@@ -15,7 +15,9 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 // 7. vite.build.assetsInlineLimit: 0 - wyłączone inlinowanie małych zasobów jako Base64 w HTML/CSS
 // 8. fonts: [] - wyłączona automatyczna optymalizacja czcionek, preloading i generowanie fallback metrics
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://fxgrdn.github.io',
+	base: '/ztw-cooking-blog',
+	trailingSlash: 'always',
 	compressHTML: false,
 	build: {
 		inlineStylesheets: 'never',
