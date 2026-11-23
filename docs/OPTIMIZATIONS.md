@@ -1,6 +1,44 @@
-# Wyłączone techniki optymalizacji (Disabled Optimization Techniques)
+# Przełączalne techniki optymalizacji (Toggleable Optimization Techniques)
 
-W tym projekcie wszystkie domyślne techniki optymalizacyjne stosowane przez Astro i Vite zostały celowo wyłączone. Poniżej znajduje się pełna lista wraz z wyjaśnieniem ich działania oraz konfiguracji.
+Każda technika optymalizacji stosowana przez Astro i Vite może być niezależnie włączona lub wyłączona zmienną środowiskową podczas budowania (`bun run build`). Domyślnie wszystkie są włączone; ustawienie zmiennej na `false` wyłącza daną technikę (w sekcjach poniżej „Stan obecny" opisuje działanie po jej wyłączeniu).
+
+## Zmienne środowiskowe
+
+| Zmienna | Opcja Astro/Vite | Wartość przy `true` (domyślnie) | Wartość przy `false` | Input workflow |
+| :-- | :-- | :-- | :-- | :-- |
+| `CONVERT_WEBP` | `image.service` | `sharpImageService()` (WebP) | `passthroughImageService()` | `convert_webp` |
+| `COMPRESS_HTML` | `compressHTML` | `true` | `false` | `compress_html` |
+| `INLINE_STYLESHEETS` | `build.inlineStylesheets` | `'auto'` | `'never'` | `inline_stylesheets` |
+| `MINIFY_JS` | `vite.build.minify` | `true` | `false` | `minify_js` |
+| `MINIFY_CSS` | `vite.build.cssMinify` | `true` | `false` | `minify_css` |
+| `INLINE_ASSETS` | `vite.build.assetsInlineLimit` | `4096` | `0` | `inline_assets` |
+| `OPTIMIZE_FONTS` | `fonts` + `<Font preload />` | Astro Fonts API, fallback metrics, `<link rel="preload">` | zwykły `@font-face` | `optimize_fonts` |
+| `ENABLE_PREFETCH` | `prefetch` | `true` | `false` | `enable_prefetch` |
+
+Każda optymalizacja jest **domyślnie włączona** i wyłączana wyłącznie przez ustawienie zmiennej na `false` (`process.env.NAZWA !== 'false'`). Każda inna wartość (lub brak zmiennej) oznacza włączenie.
+
+## Przykłady użycia lokalnie
+
+```bash
+# Domyślny build (wszystkie optymalizacje włączone)
+bun run build
+
+# Build bez minifikacji JS i CSS
+MINIFY_JS=false MINIFY_CSS=false bun run build
+
+# Build ze wszystkimi optymalizacjami wyłączonymi
+CONVERT_WEBP=false COMPRESS_HTML=false INLINE_STYLESHEETS=false MINIFY_JS=false MINIFY_CSS=false INLINE_ASSETS=false OPTIMIZE_FONTS=false ENABLE_PREFETCH=false bun run build
+```
+
+PowerShell:
+
+```powershell
+$env:MINIFY_JS = 'false'; $env:MINIFY_CSS = 'false'; bun run build
+```
+
+W GitHub Actions (`workflow_dispatch`) te same przełączniki są dostępne jako pola typu `boolean` (domyślnie `true`).
+
+---
 
 ---
 
@@ -10,7 +48,7 @@ W tym projekcie wszystkie domyślne techniki optymalizacyjne stosowane przez Ast
 
 ---
 
-### 2. Optymalizacja obrazów Sharp/WebP (`image: { service: passthroughImageService() }`)
+### 2. Optymalizacja obrazów Sharp/WebP (`CONVERT_WEBP`)
 - **Domyślne działanie Astro**: Komponent `<Image />` domyślnie przetwarza zdjęcia silnikiem `sharp`, konwertuje je do formatu WebP lub AVIF, generuje warianty responsywne oraz kompresuje wagę plików.
 - **Stan obecny**: **Wyłączone**. Zastosowano `passthroughImageService()`, dzięki czemu Astro serwuje oryginalne, nieskompresowane pliki graficzne bez przetwarzania i konwersji formatów.
 
@@ -42,7 +80,8 @@ W tym projekcie wszystkie domyślne techniki optymalizacyjne stosowane przez Ast
 
 ### 7. Automatyczna optymalizacja i preloading czcionek
 - **Domyślne działanie Astro**: Mechanizm `fontProviders` w Astro generuje metryki korygujące przesunięcia układu (CLS) z użyciem `size-adjust` i `ascent-override`, a komponent `<Font preload />` dodaje tagi `<link rel="preload">`.
-- **Stan obecny**: **Wyłączone**. Usunięto provider czcionek z konfiguracji oraz wyłączono preloading w `BaseHead.astro`. Czcionki ładowane są standardową regułą `@font-face` w `global.css`.
+- **Sterowanie**: `OPTIMIZE_FONTS`. Przy włączeniu `astro.config.mjs` rejestruje lokalny provider czcionek (`fontProviders.local()`, `--font-atkinson`), a `BaseHead.astro` renderuje `<Font cssVariable="--font-atkinson" preload />`.
+- **Stan po wyłączeniu (`OPTIMIZE_FONTS=false`)**: brak providera i preloadingu; `BaseHead.astro` wstawia zwykłe reguły `@font-face` wskazujące na pliki z `src/assets/fonts`.
 
 ---
 
@@ -52,7 +91,7 @@ W tym projekcie wszystkie domyślne techniki optymalizacyjne stosowane przez Ast
 
 ---
 
-### Podsumowanie konfiguracji w `astro.config.mjs`
+### Podsumowanie konfiguracji w `astro.config.mjs` (wszystko wyłączone)
 
 ```javascript
 import mdx from '@astrojs/mdx';

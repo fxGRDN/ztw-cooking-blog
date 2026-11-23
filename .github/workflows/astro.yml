@@ -16,6 +16,34 @@ on:
         description: 'Konwertować zdjęcia do WebP?'
         type: boolean
         default: true
+      compress_html:
+        description: 'Kompresować HTML?'
+        type: boolean
+        default: true
+      inline_stylesheets:
+        description: 'Inlinować style CSS?'
+        type: boolean
+        default: true
+      minify_js:
+        description: 'Minifikować JavaScript?'
+        type: boolean
+        default: true
+      minify_css:
+        description: 'Minifikować CSS?'
+        type: boolean
+        default: true
+      inline_assets:
+        description: 'Inlinować zasoby jako Base64?'
+        type: boolean
+        default: true
+      optimize_fonts:
+        description: 'Optymalizować i preloadować czcionki?'
+        type: boolean
+        default: true
+      enable_prefetch:
+        description: 'Włączyć prefetching?'
+        type: boolean
+        default: true
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -55,6 +83,13 @@ jobs:
       - name: Build with Astro
         env:
           CONVERT_WEBP: ${{ inputs.convert_webp }}
+          COMPRESS_HTML: ${{ inputs.compress_html }}
+          INLINE_STYLESHEETS: ${{ inputs.inline_stylesheets }}
+          MINIFY_JS: ${{ inputs.minify_js }}
+          MINIFY_CSS: ${{ inputs.minify_css }}
+          INLINE_ASSETS: ${{ inputs.inline_assets }}
+          OPTIMIZE_FONTS: ${{ inputs.optimize_fonts }}
+          ENABLE_PREFETCH: ${{ inputs.enable_prefetch }}
         run: |
           bunx astro build \
             --site "${{ steps.pages.outputs.origin }}" \
